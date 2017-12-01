@@ -68,7 +68,7 @@ class ContadorVisitor extends Visitor {
   }
 
   override def visitar(exp: ExpAplicacaoNomeada): Unit = {
-    exp.argumentoAtual.aceitar(this)
+    exp.argumentoAtual.foreach(arg=> arg.aceitar(this))
     contador += 1
   }
 
