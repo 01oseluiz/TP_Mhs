@@ -17,7 +17,7 @@ class TesteExpLet extends FlatSpec with Matchers {
     let.verificaTipo should be (TInt())
   }
 
-  it should "return error of typing" in {
+  it should "return TErro of typing" in {
     Ambiente.iniciar()
     // let x = true in x + x
     val let = new ExpLet("x", ValorBooleano(true),
@@ -35,7 +35,7 @@ class TesteExpLet extends FlatSpec with Matchers {
     let.avaliar() should be (ValorInteiro(20))
   }
 
-  ignore should "be evaluated to Valor(30) when let x = 10 in let y = 20 in x + y" in {
+  it should "be evaluated to Valor(30) when let x = 10 in let y = 20 in x + y" in {
     Ambiente.iniciar()
     val let1 = new ExpLet("y", ValorInteiro(20),
       new ExpSoma(new ExpRef("x"), new ExpRef("y")))

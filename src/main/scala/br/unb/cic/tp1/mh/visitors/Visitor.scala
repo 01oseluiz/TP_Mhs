@@ -7,6 +7,12 @@ trait Visitor {
   def visitar(exp: ValorInteiro) : Unit
   def visitar(exp: ValorBooleano) : Unit
   def visitar(exp: ExpSoma) : Unit
+  def visitar(exp: ExpSub) : Unit
+  def visitar(exp: ExpDiv) : Unit
+  def visitar(exp: ExpMult) : Unit
+  def visitar(exp: ExpOR) : Unit
+  def visitar(exp: ExpAND) : Unit
+  def visitar(exp: ExpNot) :Unit
   def visitar(exp: ExpLet) : Unit
   def visitar(exp: ExpLambda) : Unit
   def visitar(exp: ExpAplicacaoLambda) : Unit

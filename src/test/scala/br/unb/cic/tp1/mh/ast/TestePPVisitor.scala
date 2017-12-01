@@ -16,8 +16,6 @@ class TestePPVisitor extends  FlatSpec with Matchers{
     val c = new PPVisitor()
 
     soma.aceitar(c)
-
-    println(c.sb.toString)
     
     c.sb.toString should be ("((3+4)+5)")
   }

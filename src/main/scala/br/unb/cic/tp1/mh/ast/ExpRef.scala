@@ -16,7 +16,13 @@ case class ExpRef(variavel : String) extends Expressao {
     }
   }
 
-  override def verificaTipo: Tipo = Gamma.consultar(variavel)
+  override def verificaTipo: Tipo = {
+    try{
+      Gamma.consultar(variavel)
+    }catch{
+      case ex: NoSuchElementException => throw VariavelNaoDeclaradaException()
+    }
+  }
 
   override def aceitar(v: Visitor): Unit = {
     v.visitar(this)

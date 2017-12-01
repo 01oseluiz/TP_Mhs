@@ -15,6 +15,41 @@ class ContadorVisitor extends Visitor {
     contador += 1
   }
 
+  override def visitar(exp: ExpSub): Unit = {
+    exp.lhs.aceitar(this)
+    exp.rhs.aceitar(this)
+    contador += 1
+  }
+
+  override def visitar(exp: ExpMult): Unit = {
+    exp.lhs.aceitar(this)
+    exp.rhs.aceitar(this)
+    contador += 1
+  }
+
+  override def visitar(exp: ExpDiv): Unit = {
+    exp.lhs.aceitar(this)
+    exp.rhs.aceitar(this)
+    contador += 1
+  }
+
+  override def visitar(exp: ExpAND): Unit = {
+    exp.lhs.aceitar(this)
+    exp.rhs.aceitar(this)
+    contador += 1
+  }
+
+  override def visitar(exp: ExpOR): Unit = {
+    exp.lhs.aceitar(this)
+    exp.rhs.aceitar(this)
+    contador += 1
+  }
+
+  override def visitar(exp: ExpNot): Unit = {
+    exp.rhs.aceitar(this)
+    contador += 1
+  }
+
   override def visitar(exp: ExpLet): Unit = {
     exp.expNomeada.aceitar(this)
     exp.corpo.aceitar(this)

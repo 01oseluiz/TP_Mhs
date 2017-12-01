@@ -2,22 +2,20 @@ package br.unb.cic.tp1.mh.ast
 
 import br.unb.cic.tp1.mh.visitors.Visitor
 
-case class ExpSoma(lhs: Expressao, rhs: Expressao) extends Expressao {
-
+case class ExpOR(lhs:Expressao, rhs:Expressao) extends Expressao{
   override def avaliar(): Valor = {
-    val v1 = lhs.avaliar().asInstanceOf[ValorInteiro]
-    val v2 = rhs.avaliar().asInstanceOf[ValorInteiro]
+    val v1 = lhs.avaliar().asInstanceOf[ValorBooleano]
+    val v2 = rhs.avaliar().asInstanceOf[ValorBooleano]
 
-    return ValorInteiro(v1.valor + v2.valor)
-
+    return ValorBooleano(v1.valor || v2.valor)
   }
 
   override def verificaTipo: Tipo = {
     val t1 = lhs.verificaTipo
     val t2 = rhs.verificaTipo
 
-    if (t1 == TInt() && t2 == TInt()) {
-      return TInt()
+    if(t1 == TBool() && t2 == TBool()){
+      return TBool()
     }
     return TErro()
   }

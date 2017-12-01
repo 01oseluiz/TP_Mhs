@@ -21,6 +21,53 @@ class PPVisitor extends Visitor {
     sb += ')'
   }
 
+  override def visitar(exp: ExpSub): Unit = {
+    sb += '('
+    exp.lhs.aceitar(this)
+    sb += '-'
+    exp.rhs.aceitar(this)
+    sb += ')'
+  }
+
+  override def visitar(exp: ExpDiv): Unit = {
+    sb += '('
+    exp.lhs.aceitar(this)
+    sb += '/'
+    exp.rhs.aceitar(this)
+    sb += ')'
+  }
+
+  override def visitar(exp: ExpMult): Unit = {
+    sb += '('
+    exp.lhs.aceitar(this)
+    sb += '*'
+    exp.rhs.aceitar(this)
+    sb += ')'
+  }
+
+  override def visitar(exp: ExpOR): Unit = {
+    sb += '('
+    exp.lhs.aceitar(this)
+    sb += '|'
+    sb += '|'
+    exp.rhs.aceitar(this)
+    sb += ')'
+  }
+
+  override def visitar(exp: ExpAND): Unit = {
+    sb += '('
+    exp.lhs.aceitar(this)
+    sb += '&'
+    sb += '&'
+    exp.rhs.aceitar(this)
+    sb += ')'
+  }
+
+  override def visitar(exp: ExpNot): Unit = {
+    sb += '!'
+    exp.rhs.aceitar(this)
+  }
+
   override def visitar(exp: ExpLet): Unit = { }
 
   override def visitar(exp: ExpLambda): Unit = { }
