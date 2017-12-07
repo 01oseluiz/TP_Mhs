@@ -27,4 +27,5 @@ class TesteLogOperadores extends FlatSpec with Matchers{
     not.avaliar() should be(ValorBooleano(false))
   }
 
+
 }

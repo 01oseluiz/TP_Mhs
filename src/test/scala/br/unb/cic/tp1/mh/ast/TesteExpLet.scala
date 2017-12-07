@@ -8,7 +8,7 @@ class TesteExpLet extends FlatSpec with Matchers {
 
   behavior of "a let expression"
 
-  it should "return body type if tying is correct" in {
+  it should "return body type if typing is correct" in {
     Ambiente.iniciar()
     // let x = true in x + x
     val let = new ExpLet("x", ValorInteiro(10),
